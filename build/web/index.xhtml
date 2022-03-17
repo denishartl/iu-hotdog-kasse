@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <title>HotDog-Konfigurator</title>
+    </head>
+    <body>
+        <h1>HotDog-Konfigurator</h1>
+        <h:dataTable value="#{konfigurator.toppings}" var="topping">
+            <h:column>
+                <f:facet name="header">Topping</f:facet>
+                <h:outputText value="#{topping.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Preis</f:facet>
+                <h:outputText value="#{topping.preis}"/>
+            </h:column>
+        </h:dataTable>
+    </body>
+</html>
