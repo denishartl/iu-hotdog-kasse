@@ -3,10 +3,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+    <h:head>
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <title>HotDog-Konfigurator</title>
-    </head>
+    </h:head>
     <body>
         <h1>HotDog-Konfigurator</h1>
         <h:form>
@@ -21,7 +21,7 @@
                 </h:column>
                 <h:column>
                     <h:selectBooleanCheckbox id="checkbox#{zutat.name}" value="#{zutat.ausgewaehlt}">
-                        <f:ajax event="change" execute="checkbox#{zutat.name}" render="preis"/>
+                        <f:ajax listener="#{hotdogController.updatePreis()}" render="preis"/>
                     </h:selectBooleanCheckbox>
                 </h:column>
             </h:dataTable>

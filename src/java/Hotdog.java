@@ -12,7 +12,8 @@ import javax.faces.bean.ApplicationScoped;
 @ApplicationScoped
 public class Hotdog {
     private ArrayList<Zutat> zutaten = new ArrayList<Zutat>();
-    private double preis = 10.00;
+    private double preis = 0.00;
+    private static Hotdog instance = new Hotdog();
     
     public Hotdog() {
         zutaten.add(new Zutat("Basic HotDog", 6.00, true));
@@ -34,11 +35,15 @@ public class Hotdog {
     }
     
     public double getPreis() {
-        preis = preis + 5.00;
+        System.out.println(preis);
         return preis;
     }
     
     public void setPreis(double preis) {
         this.preis = preis;
+    }
+    
+    public static Hotdog getInstance() {
+        return instance;
     }
 }
