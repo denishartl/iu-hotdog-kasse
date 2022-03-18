@@ -9,15 +9,23 @@
     </head>
     <body>
         <h1>HotDog-Konfigurator</h1>
-        <h:dataTable value="#{konfigurator.toppings}" var="topping">
-            <h:column>
-                <f:facet name="header">Topping</f:facet>
-                <h:outputText value="#{topping.name}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">Preis</f:facet>
-                <h:outputText value="#{topping.preis}"/>
-            </h:column>
-        </h:dataTable>
+        <h:form>
+            <h:dataTable value="#{hotdog.zutaten}" var="zutat">
+                <h:column>
+                    <f:facet name="header">Zutat</f:facet>
+                    <h:outputText value="#{zutat.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Preis</f:facet>
+                    <h:outputText value="#{zutat.preis}"/>
+                </h:column>
+                <h:column>
+                    <h:selectBooleanCheckbox id="checkbox#{zutat.name}" value="#{zutat.ausgewaehlt}">
+                        <f:ajax event="change" execute="checkbox#{zutat.name}" render="preis"/>
+                    </h:selectBooleanCheckbox>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <h:outputText id="preis" value="Preis: #{hotdog.preis}"/>
     </body>
 </html>

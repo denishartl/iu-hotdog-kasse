@@ -2,16 +2,18 @@
  *
  * @author hartlden
  */
-public class Topping {
+public class Zutat {
     private String name;
     private double preis;
+    private boolean ausgewaehlt;
     
-    public Topping() {
+    public Zutat() {
     }
     
-    public Topping(String name, double preis) {
+    public Zutat(String name, double preis, boolean ausgewaehlt) {
         this.name = name;
         this.preis = preis;
+        this.ausgewaehlt = ausgewaehlt;
     }
     
     public String getName() {
@@ -28,5 +30,13 @@ public class Topping {
     
     public void setPreis(double preis) {
         this.preis = preis;
+    }
+    
+    public boolean getAusgewaehlt() {
+        return ausgewaehlt;
+    }
+    
+    public void setAusgewaehlt(boolean ausgewaehlt) {
+        this.ausgewaehlt = ausgewaehlt;
     }
 }
