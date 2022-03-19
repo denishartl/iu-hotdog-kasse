@@ -25,7 +25,7 @@
                     </h:selectBooleanCheckbox>
                 </h:column>
             </h:dataTable>
-            <h:commandButton class="orderButton" id="order" value="Bestellen!"/> 
+            <h:button class="orderButton" id="order" value="Bestellen!" outcome="feedback"/> 
         </h:form>
         <h:outputText id="preis" value="Preis: #{hotdogController.hotdog.preis} €"/>
     </body>
