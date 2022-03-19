@@ -1,12 +1,7 @@
+import java.lang.Math;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.bean.ApplicationScoped;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -44,12 +39,10 @@ public class HotdogController {
                 else if (anzahl_zutaten > 5) {
                     rabatt_prozent = 50.0;
                 }
-                System.out.println(zutat.getName());
-                System.out.println(rabatt_prozent/100);
+
                 preis = preis + (zutat.getPreis()*(1-(rabatt_prozent/100)));
             }
         }
-        System.out.println(preis);
-        Konfigurator.getInstance().getHotdog().setPreis(preis);
+        Konfigurator.getInstance().getHotdog().setPreis((double) Math.round(preis * 100) / 100);
     }
 }
