@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Hotdog {
     private ArrayList<Zutat> zutaten = new ArrayList<Zutat>();
-    private double preis = 0.00;
+    private double preis= 0.00;
     
     public Hotdog(ArrayList<Zutat> zutaten) {
         this.zutaten = zutaten;

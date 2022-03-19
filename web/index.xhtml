@@ -9,7 +9,7 @@
     </h:head>
     <body>
         <h1>HotDog-Konfigurator</h1>
-        <h:form>
+        <h:form id="hotdogForm">
             <h:dataTable value="#{hotdogController.hotdog.zutaten}" var="zutat">
                 <h:column>
                     <f:facet name="header">Zutat</f:facet>
@@ -17,15 +17,16 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">Preis</f:facet>
-                    <h:outputText value="#{zutat.preis}"/>
+                    <h:outputText value="#{zutat.preis} €"/>
                 </h:column>
                 <h:column>
-                    <h:selectBooleanCheckbox id="checkbox#{zutat.name}" value="#{zutat.ausgewaehlt}">
+                    <h:selectBooleanCheckbox id="checkbox#{zutat.name}" value="#{zutat.ausgewaehlt}" disabled="#{zutat.readonly}">
                         <f:ajax listener="#{hotdogController.updatePreis()}" render="preis"/>
                     </h:selectBooleanCheckbox>
                 </h:column>
             </h:dataTable>
+            <h:commandButton class="orderButton" id="order" value="Bestellen!"/> 
         </h:form>
-        <h:outputText id="preis" value="Preis: #{hotdogController.hotdog.preis}"/>
+        <h:outputText id="preis" value="Preis: #{hotdogController.hotdog.preis} €"/>
     </body>
 </html>

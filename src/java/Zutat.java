@@ -6,14 +6,16 @@ public class Zutat {
     private String name;
     private double preis;
     private boolean ausgewaehlt;
+    private boolean readonly;
     
     public Zutat() {
     }
     
-    public Zutat(String name, double preis, boolean ausgewaehlt) {
+    public Zutat(String name, double preis, boolean ausgewaehlt, boolean readonly) {
         this.name = name;
         this.preis = preis;
         this.ausgewaehlt = ausgewaehlt;
+        this.readonly = readonly;
     }
     
     public String getName() {
@@ -38,5 +40,13 @@ public class Zutat {
     
     public void setAusgewaehlt(boolean ausgewaehlt) {
         this.ausgewaehlt = ausgewaehlt;
+    }
+    
+    public boolean getReadonly() {
+        return readonly;
+    }
+    
+    public void setReadonly(boolean readonly) {
+        this.readonly = readonly;
     }
 }
