@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
@@ -12,7 +13,16 @@ public class Konfigurator {
     private Hotdog hotdog;
 
     public Konfigurator() {
-        hotdog = new Hotdog();
+        ArrayList <Zutat> zutaten = new ArrayList<Zutat>();
+        zutaten.add(new Zutat("Basic HotDog", 6.00, true));
+        zutaten.add(new Zutat("Röstzwiebeln", 1.00, false));
+        zutaten.add(new Zutat("Ketchup", 0.50, false));
+        zutaten.add(new Zutat("Mayo", 0.50, false));
+        zutaten.add(new Zutat("Senf", 0.50, false));
+        zutaten.add(new Zutat("Gürkchen", 1.00, false));
+        zutaten.add(new Zutat("Bacon", 1.00, false));
+        zutaten.add(new Zutat("Marshmallows", 2.00, false));
+        hotdog = new Hotdog(zutaten);
     }
     
     public Hotdog getHotdog() {

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.bean.ApplicationScoped;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,9 +16,13 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class HotdogController {
     
+    public Hotdog getHotdog() {
+        return Konfigurator.getInstance().getHotdog();
+    }
+    
     public static void updatePreis() {
         double preis = 0.00;
-        ArrayList<Zutat> zutaten = Hotdog.getInstance().getZutaten();
+        ArrayList<Zutat> zutaten = Konfigurator.getInstance().getHotdog().getZutaten();
         
         for (Zutat zutat:zutaten) {
             if (zutat.getAusgewaehlt()) {
@@ -26,6 +31,6 @@ public class HotdogController {
             }
         }
         System.out.println(preis);
-        Hotdog.getInstance().setPreis(preis);
+        Konfigurator.getInstance().getHotdog().setPreis(preis);
     }
 }
